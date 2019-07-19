@@ -5,10 +5,13 @@ Dockerfile with Alpine Linux postgres-client which creates an executable pg_dump
 
 -------
 ## Directions:
-Set the environment variables in the command below and then run:
-```
-docker run --rm --name pg_dump thestevenbell/postgres-client-pg_dump:latest -h $PSQL_REMOTE_ADDRESS -U $PSQL_USERNAME -D $PSQL_DBNAME -Ft > $PSQL_OUTPUT_FILE_PATH
-```  
+Set the environment variables in the command below and then run:  
+ 
+    
+    docker run --rm --name pg_dump -v pg_dump_data:/data thestevenbell/postgres-client-pg_dump:latest -h $PSQL_REMOTE_ADDRESS -U $PSQL_USERNAME -D $PSQL_DBNAME -Ft > /data/backup-$RANDOM.tar
+
+
+    
 -----
 ## Resources
 -  [pg_dump docs](https://www.postgresql.org/docs/9.6/app-pgdump.htm)
